@@ -1,14 +1,18 @@
 package Model.Bean;
 
+import java.util.Date;
+
 public class Reader {
 	private String id;
 	private String name;
+	private String user_id;
+	private String userName;
 	private String book_id;
 	private String identify;
-	private Book book;
+	private String bookName;
 	private String status;
-	private String start_day;
-	private String end_day;
+	private Date start_day;
+	private Date end_day;
 	public String getId() {
 		return id;
 	}
@@ -27,11 +31,11 @@ public class Reader {
 	public void setBook_id(String book_id) {
 		this.book_id = book_id;
 	}
-	public Book getBook() {
-		return book;
+	public String getBook() {
+		return bookName;
 	}
-	public void setBook(Book book) {
-		this.book = book;
+	public void setBook(String book) {
+		this.bookName = book;
 	}
 	public String getStatus() {
 		return status;
@@ -39,16 +43,16 @@ public class Reader {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public String getStart_day() {
+	public Date getStart_day() {
 		return start_day;
 	}
-	public void setStart_day(String start_day) {
+	public void setStart_day(Date start_day) {
 		this.start_day = start_day;
 	}
-	public String getEnd_day() {
+	public Date getEnd_day() {
 		return end_day;
 	}
-	public void setEnd_day(String end_day) {
+	public void setEnd_day(Date end_day) {
 		this.end_day = end_day;
 	}
 	public String getIdentify() {
@@ -56,6 +60,18 @@ public class Reader {
 	}
 	public void setIdentify(String identify) {
 		this.identify = identify;
+	}
+	public String getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	
 }

@@ -6,9 +6,9 @@ public class Book {
 	private String id;
 	private String name;
 	private String image;
-	private String amount;
-	private Category Category;
-	private String day;
+	private int amount;
+	private String Category;
+	private Date day;
 	public String getId() {
 		return id;
 	}
@@ -27,22 +27,22 @@ public class Book {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	public String getAmount() {
+	public int getAmount() {
 		return amount;
 	}
-	public void setAmount(String amount) {
+	public void setAmount(int amount) {
 		this.amount = amount;
 	}
-	public String getDay() {
+	public Date getDay() {
 		return day;
 	}
-	public void setDay(String day) {
+	public void setDay(Date day) {
 		this.day = day;
 	}
-	public Category getCategory() {
+	public String getCategory() {
 		return Category;
 	}
-	public void setCategory(Category category) {
+	public void setCategory(String category) {
 		Category = category;
 	}
 	
