@@ -6,10 +6,8 @@ public class Reader {
 	private String id;
 	private String name;
 	private String user_id;
-	private String userName;
 	private String book_id;
 	private String identify;
-	private String bookName;
 	private String status;
 	private Date start_day;
 	private Date end_day;
@@ -30,12 +28,6 @@ public class Reader {
 	}
 	public void setBook_id(String book_id) {
 		this.book_id = book_id;
-	}
-	public String getBook() {
-		return bookName;
-	}
-	public void setBook(String book) {
-		this.bookName = book;
 	}
 	public String getStatus() {
 		return status;
@@ -66,12 +58,6 @@ public class Reader {
 	}
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;
-	}
-	public String getUserName() {
-		return userName;
-	}
-	public void setUserName(String userName) {
-		this.userName = userName;
 	}
 	
 }

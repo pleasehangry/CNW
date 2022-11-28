@@ -7,7 +7,7 @@ public class Book {
 	private String name;
 	private String image;
 	private int amount;
-	private String Category;
+	private String category;
 	private Date day;
 	public String getId() {
 		return id;
@@ -40,10 +40,10 @@ public class Book {
 		this.day = day;
 	}
 	public String getCategory() {
-		return Category;
+		return category;
 	}
 	public void setCategory(String category) {
-		Category = category;
+		category = category;
 	}
 	
 }
