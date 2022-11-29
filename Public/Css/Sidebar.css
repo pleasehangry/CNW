@@ -1,0 +1,105 @@
+.Sidebar {
+    width: 16rem;
+    height: 100%;
+    position: fixed;    
+    background-color: rgb(65, 65, 65);
+    padding: 0 8px;
+    overflow: auto;
+    padding-bottom: 2.5rem;
+    color: #fff;
+}
+
+.Sidebar_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Sibar_logo_link {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+
+}
+
+.Sidebar_user {
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1rem;       
+    display: flex;
+    font-size: 1rem;
+    font-weight: 1.5rem;
+    padding: 8px 0;
+    border-top: 1px solid #ccc;;
+    border-bottom: 1px solid #ccc;;
+    justify-content: center;
+}
+
+.user_avat {
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+}
+
+.Sidebar_menu {
+    font-size: 12px;
+}
+
+.nav_title {
+    margin: 0.75rem;
+    margin-top: 1rem;
+    text-transform: uppercase;
+}
+
+.nav_links {
+    list-style: none;
+}
+
+.nav_link_item {
+    padding: 8px;
+    margin: 4px 8px;
+    border-radius: 3px;
+    background-color: #00a181;
+}
+
+.nav_link_item:hover {
+    background-color: #656565;
+}
+
+.nav_link_item-link {
+    text-decoration: none;
+    color: #fff;
+}
+
+.Sibar_menu_logout {
+    padding: 8px;
+    margin: 8px 8px;
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.824);
+}
+
+/* // header */
+
+.container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 16rem;
+    padding: 0;
+}
+
+.header {
+    height: 4rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 2px solid #ccc;
+}
+
+.header_path {
+    font-size: 1.5rem;
+    padding-left: 1rem;
+}
+
