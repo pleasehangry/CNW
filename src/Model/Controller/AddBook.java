@@ -24,6 +24,7 @@ import Model.BO.BookBO;
 import Model.BO.CategoryBO;
 import Model.Bean.Book;
 import Model.Bean.Category;
+import Model.Bean.User;
 
 /**
  * Servlet implementation class AddBook
@@ -71,6 +72,8 @@ public class AddBook extends HttpServlet {
 			// LÆ°u thĂ´ng tin vĂ o request attribute trÆ°á»›c khi forward sang views.
 			request.setAttribute("errorString", errorString);
 			request.setAttribute("categoryList", list);
+			User userr = (User) request.getSession().getAttribute("User");
+			request.setAttribute("user", userr);
 			request.getSession().setAttribute("Check", "AddBook");
 			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/add_book.jsp");
 			dispatcher.forward(request, response);

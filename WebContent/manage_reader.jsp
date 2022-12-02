@@ -14,7 +14,7 @@
 			<div class="row">
 
 				<div class="col-md-12">
-					<div class="card">
+					<div class="card" >
 						<c:if
 							test="${sessionScope.Check.toString().equals('ManageReader_0')}">
 							<form role="form" method="post"
@@ -33,7 +33,7 @@
 							</c:if>
 							<c:if
 								test="${sessionScope.Check.toString().equals('ManageReader_1')}">
-								<h3 class="card-title">Danh sách lịch sử mượn sách sách</h3>
+								<h3 class="card-title">Danh sách lịch sử mượn sách</h3>
 							</c:if>
 
 
@@ -44,7 +44,7 @@
 										placeholder="Tìm kiếm theo tên">
 
 									<div class="input-group-append">
-										<button type="submit" class="btn btn-primary">
+										<button type="submit" class="btn btn-primary" style = "background-color:#00a181; border-color:#00a181;">
 											<i class="fas fa-search"></i>
 										</button>
 									</div>

@@ -24,9 +24,9 @@
 			<div class="row">
 				<div class="col-md-3"></div>
 				<div class="col-md-6">
-					<div class="card card-primary">
-						<div class="card-header">
-							<h3 class="card-title">Đăng nhập</h3>
+					<div class="card card-primary" >
+						<div class="card-header" style = "background-color: #00a181">
+							<h3 class="card-title" >Đăng nhập</h3>
 						</div>
 						<!-- /.card-header -->
 						<!-- form start -->
@@ -55,15 +55,12 @@
 										khoản</label>
 								</div>
 								<div style="margin-bottom: -14px; margin-top: 25px;">
-									<h6>
-										<b>Chú ý:</b> Tên đăng nhập: <b>nobita</b>, mật khẩu: <b>doraemon</b>
-									</h6>
 								</div>
 							</div>
 							<!-- /.card-body -->
 
 							<div class="card-footer">
-								<button type="submit" class="btn btn-primary">Submit</button>
+								<button type="submit" class="btn btn-primary" style ="background-color:#00a181; border-color:#00a181;">Submit</button>
 							</div>
 						</form>
 					</div>

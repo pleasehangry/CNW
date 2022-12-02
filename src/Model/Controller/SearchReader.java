@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Model.BO.ReaderBO;
 import Model.Bean.Reader;
+import Model.Bean.User;
 
 /**
  * Servlet implementation class SearchReader
@@ -69,6 +70,8 @@ public class SearchReader extends HttpServlet {
 			// Lưu thông tin vào request attribute trước khi forward sang views.
 			request.setAttribute("readerList", list);
 
+			User userr = (User) request.getSession().getAttribute("User");
+			request.setAttribute("user", userr);
 			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/manage_reader.jsp");
 			dispatcher.forward(request, response);
 		}

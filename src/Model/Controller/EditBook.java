@@ -18,6 +18,7 @@ import Model.BO.BookBO;
 import Model.BO.CategoryBO;
 import Model.Bean.Book;
 import Model.Bean.Category;
+import Model.Bean.User;
 
 /**
  * Servlet implementation class EditCategory
@@ -71,8 +72,12 @@ public class EditBook extends HttpServlet {
 			if (request.getAttribute("errorString") != null) {
 				errorString = (String) request.getAttribute("errorString");
 			}
+			User userr = (User) request.getSession().getAttribute("User");
+			request.setAttribute("user", userr);
 			request.setAttribute("book", book);
 			request.setAttribute("categoryList", list);
+			User userr = (User) request.getSession().getAttribute("User");
+			request.setAttribute("user", userr);
 			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/edit_book.jsp");
 			dispatcher.forward(request, response);
 		}

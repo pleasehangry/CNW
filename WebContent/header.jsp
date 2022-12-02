@@ -30,7 +30,7 @@
 	href="./Resources/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
 <!-- Daterange picker -->
 <link rel="stylesheet"
-	href="./Resources/plugins/daterangepicker/daterangepicker.css">
+	href="./Resources/plugins/daterangepicker	/daterangepicker.css">
 <!-- summernote -->
 <link rel="stylesheet"
 	href="./Resources/plugins/summernote/summernote-bs4.css">
@@ -50,7 +50,7 @@
 <link rel="stylesheet"
 	href="Resources/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
 <!-- Theme style -->
-<link rel="stylesheet" href="Resources/css/adminlte.min.css">
+<link rel="stylesheet" href="Resources/css/adminlte.css">
 <!-- Google Font: Source Sans Pro -->
 
 <link
@@ -67,19 +67,17 @@
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" data-widget="pushmenu"
 					href="#" role="button"><i class="fas fa-bars"></i></a></li>
-				<li class="nav-item d-none d-sm-inline-block"><a href="${pageContext.request.contextPath}/UserManual"
-					class="nav-link">Hướng dẫn sử dụng</a></li>
 			</ul>
 
 		</nav>
 		<!-- /.navbar -->
 
-		<!-- Main Sidebar Container -->
-		<aside class="main-sidebar sidebar-dark-primary elevation-4">
+		<!-- Main Sidebar Container -->	
+		<aside class="main-sidebar sidebar-light-primary elevation-4">
 			<a href="${pageContext.request.contextPath}/UserManual" class="brand-link"> <img
-				src="Resources/img/AdminLTELogo.png" alt="AdminLTE Logo"
+				src="Resources/img/2.png" alt="AdminLTE Logo"
 				class="brand-image img-circle elevation-3" style="opacity: .8">
-				<span class="brand-text font-weight-light">Quán lý thư viện</span>
+				<span class="brand-text font-weight-light">Quản lý thư viện</span>
 			</a>
 
 			<!-- Sidebar -->
@@ -93,7 +91,7 @@
 						User user = (User) request.getSession().getAttribute("User");
 					%>
 					<div class="image">
-						<img src="Resources/img/avatar.jpg" class="img-circle elevation-2"
+						<img src="Resources/img/avatar5.png" class="img-circle elevation-2"
 							alt="User Image">
 					</div>
 					<div class="info">
@@ -104,7 +102,7 @@
 						} else {
 					%>
 
-					<div class="info" style="margin-left: 60px;">
+					<div class="info" style="margin-left: 40px;">
 						<a href="${pageContext.request.contextPath}/Login" class="d-block">Đăng
 							nhập</a>
 					</div>
@@ -117,12 +115,6 @@
 				<nav class="mt-2">
 					<ul class="nav nav-pills nav-sidebar flex-column"
 						data-widget="treeview" role="menu" data-accordion="false">
-						<li class="nav-item "><a
-							href="${pageContext.request.contextPath}/UserManual"
-							class="nav-link <c:if test="${sessionScope.Check.toString().equals('Manual')}">active</c:if> ">
-								<i class="nav-icon fas fa-book"></i>
-								<p>Hướng dẫn</p>
-						</a></li>
 						<li
 							class="nav-item has-treeview <c:if test="${sessionScope.Check.toString().equals('ManageBook') || sessionScope.Check.toString().equals('AddBook')||sessionScope.Check.toString().equals('ManageCategory')}">menu-open</c:if>"><a
 							href="#"
@@ -139,7 +131,8 @@
 										<i class="far fa-circle nav-icon"></i>
 										<p>Danh sách</p>
 								</a></li>
-								<li class="nav-item"><a
+								<c:if test="${user.getIsAdmin() == true}">
+									<li class="nav-item"><a
 									href="${pageContext.request.contextPath}/AddBook"
 									class="nav-link <c:if test="${sessionScope.Check.toString().equals('AddBook')}">active</c:if>">
 										<i class="far fa-circle nav-icon"></i>
@@ -151,6 +144,7 @@
 										<i class="far fa-circle nav-icon"></i>
 										<p>Thể loại</p>
 								</a></li>
+								</c:if>
 							</ul></li>
 						<li
 							class="nav-item has-treeview  <c:if test="${sessionScope.Check.toString().equals('ManageReader_0') || sessionScope.Check.toString().equals('AddReader') || sessionScope.Check.toString().equals('ManageReader_1')}">menu-open</c:if>"><a
@@ -168,12 +162,20 @@
 										<i class="far fa-circle nav-icon"></i>
 										<p>Thêm người mượn sách</p>
 								</a></li>
-								<li class="nav-item"><a
-									href="${pageContext.request.contextPath}/ManageReader"
-									class="nav-link <c:if test="${sessionScope.Check.toString().equals('ManageReader_0')}">active</c:if>">
-										<i class="far fa-circle nav-icon"></i>
-										<p>Danh sách đang mượn sách</p>
-								</a></li>
+								<c:if test="${user.getIsAdmin() == true}">
+									<li class="nav-item"><a
+										href="${pageContext.request.contextPath}/ManageReader"
+										class="nav-link <c:if test="${sessionScope.Check.toString().equals('ManageReader_0')}">active</c:if>">
+											<i class="far fa-circle nav-icon"></i>
+											<p>Danh sách đang mượn sách</p>
+									</a></li>
+									<li class="nav-item"><a
+										href="${pageContext.request.contextPath}/ManageUser"
+										class="nav-link <c:if test="${sessionScope.Check.toString().equals('ManageUser')}">active</c:if>">
+											<i class="far fa-circle nav-icon"></i>
+											<p>Danh sách đọc giả</p>
+									</a></li>
+								</c:if>
 
 								<li class="nav-item"><a
 									href="${pageContext.request.contextPath}/ManageReader?status=1"

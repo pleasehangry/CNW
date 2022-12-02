@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Model.BO.CategoryBO;
 import Model.Bean.Category;
+import Model.Bean.User;
 import Model.DAO.CategoryDAO;
 
 /**
@@ -42,6 +43,8 @@ public class AddCategory extends HttpServlet {
 			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login.jsp");
 			dispatcher.forward(request, response);
 		} else {
+			User userr = (User) request.getSession().getAttribute("User");
+			request.setAttribute("user", userr);
 			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/add_category.jsp");
 			dispatcher.forward(request, response);
 		}

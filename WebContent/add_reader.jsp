@@ -29,7 +29,7 @@
 						action="${pageContext.request.contextPath}/AddReader">
 
 						<div class="card card-primary">
-							<div class="card-header">
+							<div class="card-header" style = "background-color:#00a181; border-color:#00a181;">
 								<h3 class="card-title">Thêm người mượn sách</h3>
 							</div>
 							<!-- /.card-header -->
@@ -76,9 +76,10 @@
 								</div>
 							</div>
 							<div class="card-footer">
-								<button type="submit" class="btn btn-primary ">Lưu</button>
+								<button type="submit" class="btn btn-primary " style = "background-color:#00a181; border-color:#00a181;">Lưu</button>
 								<input type="button" value="Hủy" class="btn btn-primary"
-									onclick="location.href='${pageContext.request.contextPath}/ManageReader'">
+									onclick="location.href='${pageContext.request.contextPath}/ManageReader'"
+									style = "background-color:#00a181; border-color:#00a181;">
 							</div>
 						</div>
 					</form>

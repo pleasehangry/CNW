@@ -4,6 +4,7 @@ public class User {
 	private String id;
 	private String username;
 	private String password;
+	private Boolean isAdmin;
 	public String getUsername() {
 		return username;
 	}
@@ -21,6 +22,12 @@ public class User {
 	}
 	public void setId(String id) {
 		this.id = id;
+	}
+	public Boolean getIsAdmin() {
+		return isAdmin;
+	}
+	public void setIsAdmin(Boolean isAdmin) {
+		this.isAdmin = isAdmin;
 	}
 	
 }

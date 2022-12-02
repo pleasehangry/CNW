@@ -7,16 +7,14 @@
 <div class="content-wrapper">
 	<!-- Main content -->
 	<section class="content">
-
 		<div class="container-fluid">
 			<div class="row">
-
 				<div class="col-md-12">
 					<div class="card">
 						<form role="form" method="post"
-							action="${pageContext.request.contextPath}/SearchBook">
+							action="${pageContext.request.contextPath}/SearchUser">
 							<div class="card-header">
-								<h3 class="card-title">Danh sách sách trong thư viện</h3>
+								<h3 class="card-title">Danh sách người dùng trong thư viện</h3>
 
 								<div class="card-tools" style="margin-right: 1px;">
 									<div class="input-group input-group-sm" style="width: 200px;">
@@ -38,55 +36,31 @@
 							<div style="margin-top: 20px; color: red;">${errorString}</div>
 						</div>
 						<!-- /.card-header -->
-						<div class="card-body" >
+						<div class="card-body col-md-6 mx-auto" >
 							<div class="card-header" style="margin-left: -20px; margin-top: -40px;">
-								<input type="button" value="Thêm sách" style = "background-color:#00a181; border-color:#00a181;"
+								<input type="button" value="Thêm Đọc Giả" style = "background-color:#00a181; border-color:#00a181;"
 									class="btn btn-primary"
-									onclick="location.href='${pageContext.request.contextPath}/AddBook'">
+									onclick="location.href='${pageContext.request.contextPath}/AddUser'">
 							</div>
-							<table class="table table-bordered table-hover" id="example2">
+							<table class="table table-bordered" id="example2">
 								<thead>
 									<tr>
 										<th style="width: 10px">STT</th>
-										<th style="width: 318px;">Tên</th>
-										<th>Thể loại</th>
-										<th>Số lượng</th>
-										<th>Ngày nhập</th>
-										<th>Hình ảnh</th>	
-										
-										<c:if test="${user.getIsAdmin() == true}">
-											<th>Chỉnh sửa</th>
-											<th>Xóa</th>
-										</c:if>
+										<th>username</th>
+										<th>Xóa</th>
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach items="${bookList}" var="book" varStatus="loop">
+									<c:forEach items="${userList}" var="book" varStatus="loop">
 										<tr>
 											<td>${loop.index+1}</td>
-											<td>${book.getName()}</td>
-											<td>${book.getCategory().getName()}</td>
-											<td style="text-align: center;">${book.getAmount()}</td>
-											<td>${book.getDay()}</td>
-											<td style="text-align: center;"><img
-												src="Resources/img/products/${book.getImage()}" width="35"
-												height="50">
-												<figcaption>
-													<a href="Resources/img/products/${book.getImage()}"
-														style="font-size: 14px;" target="_blank">Xem chi tiết</a>
-												</figcaption>
-												
-										<c:if test="${user.getIsAdmin() == true}">
-											<td><a
-												href="${pageContext.request.contextPath}/EditBook?id=${book.getId()}"
-												class="btn btn-sm btn-info">Chỉnh sửa</a></td>
+											<td>${book.getUsername()}</td>
 											<td>
 												<button type="button" class="btn btn-primary btn-danger"
 													data-toggle="modal"
 													data-target="#staticBackdrop-${Integer.toString(book.getId())}"
 													style="padding-bottom: 5px; padding-top: 3px; font-size: 14px">Xóa</button>
 											</td>
-										</c:if>
 										</tr>
 
 										<div class="modal fade"
@@ -104,15 +78,14 @@
 														</button>
 													</div>
 													<div class="modal-body">
-														<span class="text-danger"> Bạn có muốn chắc xóa
-															cuốn sách '${book.getName()}'</span>
+														<span class="text-danger">Bạn có muốn chắc xóa '${book.getUsername()}'</span>
 													</div>
 													<div class="modal-footer">
 														<button type="button"
 															class="btn btn-warning  btn-secondary"
 															data-dismiss="modal">Hủy</button>
 														<form
-															action="${pageContext.request.contextPath}/DeleteBook?id=${book.getId()}"
+															action="${pageContext.request.contextPath}/DeleteUser?id=${book.getId()}"
 															method="POST">
 															<button type="submit" class="btn btn-danger">Xóa</button>
 														</form>
@@ -155,9 +128,7 @@
 													data-dismiss="modal">Hủy</button>
 
 												<button type="submit" class="btn btn-danger"
-													onclick="location.href='${pageContext.request.contextPath}/DeleteBook'">Xóa</button>
-
-
+													onclick="location.href='${pageContext.request.contextPath}/DeleteUser'">Xóa</button>
 											</div>
 										</div>
 									</div>

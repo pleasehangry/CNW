@@ -25,8 +25,8 @@
 				<div class="col-md-6">
 					<!-- general form elements -->
 					<div class="card card-primary">
-						<div class="card-header">
-							<h3 class="card-title">Thêm thể loại</h3>
+						<div class="card-header" style = "background-color:#00a181; border-color:#00a181;">
+							<h3 class="card-title" >Thêm thể loại</h3>
 						</div>
 						<!-- /.card-header -->
 						<!-- form start -->
@@ -40,8 +40,8 @@
 								</div>
 							</div>
 							<div class="card-footer">
-								<button type="submit" class="btn btn-primary ">Lưu</button>
-								<input type="button" value="Hủy" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/ManageCategory'">
+								<button type="submit" class="btn btn-primary " style = "background-color:#00a181; border-color:#00a181;">Lưu</button>
+								<input type="button" value="Hủy" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/ManageCategory'" style = "background-color:#00a181; border-color:#00a181;">
 							</div>
 						</form>
 					</div>

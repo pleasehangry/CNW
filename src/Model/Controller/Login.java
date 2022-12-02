@@ -78,6 +78,7 @@ public class Login extends HttpServlet {
 		}
 		if (user != null) {
 			request.getSession().setAttribute("User", user);
+			System.out.println(user);
 			if (remember) {
 
 				GetCookie.storeUserCookie(response, user);
@@ -86,7 +87,7 @@ public class Login extends HttpServlet {
 			else {
 				GetCookie.deleteUserCookie(response);
 			}
-			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/UserManual");
+			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/ManageBook");
 			dispatcher.forward(request, response);
 		} else {
 			if (errorString == null)

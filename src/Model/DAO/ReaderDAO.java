@@ -35,7 +35,7 @@ public class ReaderDAO {
 			e.printStackTrace();
 		}
 		int result = 0;
-		String insert = "INSERT INTO Reader (name, book_id, identity_card, end_day) VALUES (?,?, ?, ?)";
+		String insert = "INSERT INTO reader (name, book_id, identity_card, end_day) VALUES (?,?, ?, ?)";
 		preSt = (PreparedStatement) conn.prepareStatement(insert);
 		preSt.setString(1, name);
 		preSt.setString(2, book_id);
@@ -146,10 +146,12 @@ public class ReaderDAO {
 		if (conn == null)
 			conn = ConnectDatabase.getMySQLConnection();
 		ArrayList<Reader> list = new ArrayList<Reader>();
-		String sql = "Select * from Reader where name like ? and status=?";
+		String sql = "Select * from Reader inner join book on"
+				+ " reader.book_id = book.id where reader.name like ? or book.name like ? or status=?";
 		PreparedStatement pstm = (PreparedStatement) conn.prepareStatement(sql);
-		pstm.setString(1, data_search);
-		pstm.setInt(2, Integer.parseInt(status));
+		pstm.setString(1, "%" + data_search + "%");
+		pstm.setString(2, "%" + data_search + "%");
+		pstm.setInt(3, Integer.parseInt(status));
 		ResultSet rs = pstm.executeQuery();
 		
 		while (rs.next()) {

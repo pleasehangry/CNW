@@ -14,6 +14,7 @@ import Model.BO.BookBO;
 import Model.BO.ReaderBO;
 import Model.Bean.Book;
 import Model.Bean.Category;
+import Model.Bean.User;
 
 /**
  * Servlet implementation class AddReader
@@ -39,7 +40,7 @@ public class AddReader extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		if (request.getSession().getAttribute("User") == null) {
-			String errorString = "Bạn cần đăng nhập trước";
+			String errorString = "Báº¡n cáº§n Ä‘Äƒng nháº­p trÆ°á»›c";
 			request.setAttribute("errorString", errorString);
 			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login.jsp");
 			dispatcher.forward(request, response);
@@ -56,9 +57,11 @@ public class AddReader extends HttpServlet {
 			if (request.getAttribute("errorString") != null) {
 				errorString = (String) request.getAttribute("errorString");
 			}
-			// Lưu thông tin vào request attribute trước khi forward sang views.
+			// LÆ°u thĂ´ng tin vĂ o request attribute trÆ°á»›c khi forward sang views.
 			request.setAttribute("errorString", errorString);
 			request.setAttribute("bookList", list);
+			User userr = (User) request.getSession().getAttribute("User");
+			request.setAttribute("user", userr);
 			request.getSession().setAttribute("Check", "AddReader");
 			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/add_reader.jsp");
 			dispatcher.forward(request, response);
@@ -73,7 +76,7 @@ public class AddReader extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		if (request.getSession().getAttribute("User") == null) {
-			String errorString = "Bạn cần đăng nhập trước";
+			String errorString = "Báº¡n cáº§n Ä‘Äƒng nháº­p trÆ°á»›c";
 			request.setAttribute("errorString", errorString);
 			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login.jsp");
 			dispatcher.forward(request, response);
@@ -90,10 +93,10 @@ public class AddReader extends HttpServlet {
 			} catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();
-				errorString = "Số chứng minh phải là số";
+				errorString = "Sá»‘ chá»©ng minh pháº£i lĂ  sá»‘";
 			}
 			if (errorString == null) {
-				errorString = "Đã thêm thành công";
+				errorString = "Ä�Ă£ thĂªm thĂ nh cĂ´ng";
 			}
 			request.setAttribute("errorString", errorString);
 			doGet(request, response);

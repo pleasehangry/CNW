@@ -119,11 +119,12 @@ public class BookDAO {
 	public ArrayList<Book> getSearchBook(String name_search) throws ClassNotFoundException, SQLException {
 		if (conn == null)
 			conn = ConnectDatabase.getMySQLConnection();
-		System.out.println("Day"+name_search);
 		ArrayList<Book> list = new ArrayList<Book>();
-		String sql = "Select * from Book where name like '%"+name_search+"%';";
-//		String sql = "Select * from Book where name like '%l';";
+		String sql = "Select * from book INNER JOIN category on book.category_id = category.id where book.name like ? or category.name LIKE ?;";
 		PreparedStatement pstm = (PreparedStatement) conn.prepareStatement(sql);
+		pstm.setString(1, "%"+name_search+"%");
+		pstm.setString(2, "%"+name_search+"%");
+		System.out.println(pstm);
 		ResultSet rs = pstm.executeQuery();
 
 		while (rs.next()) {

@@ -15,6 +15,7 @@ import Model.BO.ReaderBO;
 import Model.Bean.Book;
 import Model.Bean.Category;
 import Model.Bean.Reader;
+import Model.Bean.User;
 
 /**
  * Servlet implementation class ManageBook
@@ -62,9 +63,6 @@ public class ManageReader extends HttpServlet {
 			System.out.println(status);
 			String errorString = null;
 			ArrayList<Reader> list = null;
-//		if(status.equals("1")==false) {
-//			status="0";
-//		}
 			try {
 				list = readerBO.getListReader(status);
 			} catch (Exception e) {
@@ -75,6 +73,8 @@ public class ManageReader extends HttpServlet {
 				errorString = (String) request.getAttribute("errorString");
 			}
 			// Lưu thông tin vào request attribute trước khi forward sang views.
+			User userr = (User) request.getSession().getAttribute("User");
+			request.setAttribute("user", userr);
 			request.setAttribute("readerList", list);
 			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/manage_reader.jsp");
 			dispatcher.forward(request, response);

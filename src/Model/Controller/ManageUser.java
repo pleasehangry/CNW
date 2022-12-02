@@ -1,7 +1,6 @@
 package Model.Controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -11,43 +10,44 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Model.BO.CategoryBO;
-import Model.Bean.Category;
+import Model.BO.UserBO;
+import Model.Bean.Reader;
 import Model.Bean.User;
 
 /**
- * Servlet implementation class ManageCategory
+ * Servlet implementation class ManageUser
  */
-@WebServlet("/ManageCategory")
-public class ManageCategory extends HttpServlet {
+@WebServlet("/ManageUser")
+public class ManageUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private CategoryBO categoryBO = new CategoryBO();
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ManageUser() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	public ManageCategory() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		if (request.getSession().getAttribute("User") == null) {
-			String errorString = "Bạn cần đăng nhập trước";
+			String errorString = "Bạn cần đăng nhập trước";	
 			request.setAttribute("errorString", errorString);
 			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login.jsp");
 			dispatcher.forward(request, response);
 		} else {
+			String status = (String) request.getParameter("status");
+			request.getSession().setAttribute("Check", "ManageUser");
+			System.out.println(status);
 			String errorString = null;
-			ArrayList<Category> list = null;
-
+			UserBO userBO = new UserBO();
+			ArrayList<User> list = null;
 			try {
-				list = categoryBO.listCategory();
+				list = userBO.getAccountList();
 			} catch (Exception e) {
 				e.printStackTrace();
 				errorString = e.getMessage();
@@ -58,17 +58,16 @@ public class ManageCategory extends HttpServlet {
 			// Lưu thông tin vào request attribute trước khi forward sang views.
 			User userr = (User) request.getSession().getAttribute("User");
 			request.setAttribute("user", userr);
-			request.setAttribute("errorString", errorString);
-			request.setAttribute("categoryList", list);
-			request.getSession().setAttribute("Check", "ManageCategory");
-			// Forward sang /WEB-INF/views/productListView.jsp
-			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/manage_category.jsp");
+			request.setAttribute("userList", list);
+			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/manage_user.jsp");
 			dispatcher.forward(request, response);
 		}
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

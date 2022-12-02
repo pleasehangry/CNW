@@ -1,3 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/Model/Controller/AddBook.java=UTF-8
+encoding//src/Model/Controller/AddReader.java=UTF-8
+encoding//src/Model/Controller/AddUser.java=UTF-8
+encoding//src/Model/Controller/DeleteUser.java=UTF-8
+encoding//src/Model/Controller/EditCategory.java=UTF-8
 encoding//src/Model/DAO/ConnectDatabase.java=UTF-8

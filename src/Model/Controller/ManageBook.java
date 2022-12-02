@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import Model.BO.BookBO;
 import Model.Bean.Book;
 import Model.Bean.Category;
+import Model.Bean.User;
 
 /**
  * Servlet implementation class ManageBook
@@ -55,6 +56,8 @@ public class ManageBook extends HttpServlet {
 			if (request.getAttribute("errorString") != null) {
 				errorString = (String) request.getAttribute("errorString");
 			}
+			User userr = (User) request.getSession().getAttribute("User");
+			request.setAttribute("user", userr);
 			// Lưu thông tin vào request attribute trước khi forward sang views.
 			request.setAttribute("errorString", errorString);
 			request.setAttribute("bookList", list);

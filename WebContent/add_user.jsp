@@ -26,7 +26,7 @@
 					<!-- general form elements -->
 					<div class="card card-primary">
 						<div class="card-header" style = "background-color:#00a181; border-color:#00a181;">
-							<h3 class="card-title">Thêm sách vào thư viện</h3>
+							<h3 class="card-title">Thêm Đọc Giả</h3>
 						</div>
 						<div class="row justify-content-center"
 							style="margin-top: 15px; margin-bottom: -15px;">
@@ -35,49 +35,26 @@
 						<!-- /.card-header -->
 						<!-- form start -->
 						<form role="form" method="post"
-							action="${pageContext.request.contextPath}/AddBook"
-							enctype="multipart/form-data">
+							action="${pageContext.request.contextPath}/AddUser">
 
 							<div class="card-body">
 								<div class="form-group">
 									<label>Nhập tên sách</label> <input type="text"
-										class="form-control" id="name" name="name"
-										placeholder="Nhập tên sách">
+										class="form-control" id="name" name="username"
+										placeholder="Username...">
 								</div>
 								<div class="form-group">
-									<label>Thể loại</label> <select name="category" id="category"
-										class="form-control" required>
-										<!-- <option value="">Chọn 1 thể loại</option> -->
-										<c:forEach items="${categoryList}" var="category">
-											<option value="${Integer.toString(category.getId())}">${category.getName()}</option>
-										</c:forEach>
-									</select>
-								</div>
-								<div class="form-group">
-									<label>Số lượng</label> <input type="number"
-										class="form-control" id="count" name="count" min="1" value="1">
-								</div>
-								<div class="form-group">
-									<label for="exampleInputFile">Thêm ảnh bìa</label>
-									<div class="input-group">
-										<div class="custom-file">
-											<input type="file" accept="image/png, image/jpeg"
-												class="custom-file-input" id="customFile" name="fileImage"
-												required> <label class="custom-file-label"
-												for="customFile" style="color: #a6b0ba;">Nhấn đây để chọn file</label>
-										</div>
-									</div>
+									<label>Nhập Mật Khẩu</label> <input type="password"
+										class="form-control" id="count" name="password">
 								</div>
 							</div>
 							<div class="card-footer">
 								<button type="submit" class="btn btn-primary " style = "background-color:#00a181; border-color:#00a181;">Lưu</button>
 								<input type="button" value="Trở lại" class="btn btn-primary"
-									onclick="location.href='${pageContext.request.contextPath}/ManageBook'" style = "background-color:#00a181; border-color:#00a181;">
+									onclick="location.href='${pageContext.request.contextPath}/ManageUser'" style = "background-color:#00a181; border-color:#00a181;">
 							</div>
 						</form>
 					</div>
-
-
 				</div>
 				<!-- /.row -->
 			</div>

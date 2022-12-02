@@ -1,46 +1,51 @@
 CREATE DATABASE manage_library;
+use manage_library;
 
-create table user
+CREATE TABLE book
 (
-	id nvarchar(16) primary key,
-	name nvarchar(30),
-	password nvarchar(50),
-	isAdmin boolean,
-)
+	id INT AUTO_INCREMENT PRIMARY KEY ,
+    name varchar(250),
+    category_id int,
+    amount int,
+    image varchar(250),
+    create_day timestamp
+);
 
-create table reader
+CREATE TABLE `user`
 (
-	id nvarchar(16) primary key,
-	name nvarchar(100),
-	book_id nvarchar(16),
-	indentify nvarchar(16),
-	start_day date,
-	end_day date,
-	status nvarchar(50),
-)
+	id int AUTO_INCREMENT PRIMARY KEY,
+    username varchar(250),
+    password varchar(250)
+);
 
-create table book
+CREATE TABLE reader
 (
-	id nvarchar(16) primary key,
-	name nvarchar(100),
-	category nvarchar(100),
-	image varchar(100),
-	amount int,
-	day date,
-)
+	id int AUTO_INCREMENT PRIMARY KEY,
+    name varchar(250),
+    book_id int,
+    identity_card int,
+    start_day timestamp,
+    end_day timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    status bit DEFAULT 1
+);
 
-create table category
+CREATE TABLE category
 (
-	id nvarchar(16) primary key,
-	name nvarchar(16),
-)
+	id int AUTO_INCREMENT PRIMARY KEY,
+    name varchar(250)
+);
 
-alter table book
-	add constraint FK_BOOK_CATEGORY
-	foreign key (category)
-	references category(name);
+ALTER TABLE book
+	add CONSTRAINT FK_BOOK_CATE
+    FOREIGN KEY (category_id) REFERENCES category(id);
+ALTER TABLE reader
+	add CONSTRAINT FK_READER_BOOK
+    FOREIGN KEY (book_id) REFERENCES book(id);
+    
+INSERT INTO `user`(id, username, password) values(1, 'admin', '123');
+INSERT INTO `user`(id, username, password) values(2, 'admin2', '123');
+INSERT INTO `user`(id, username, password) values(3, 'admin3', '123');
 
-alter table reader
-	add constraint FK_READER_BOOK
-	foreign key (book_id)
-	references book(id);
+INSERT INTO category(id,name) VALUES (1, 'aaa');
+INSERT INTO category(id,name) VALUES (2, 'bbb');
+INSERT INTO category(id,name) VALUES (3, 'ccc');

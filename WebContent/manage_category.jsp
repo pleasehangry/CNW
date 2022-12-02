@@ -83,7 +83,8 @@
 								</tbody>
 							</table>
 							<div class="card-header" style="margin-left: -20px;">
-								<input type="button" value="Thêm thể loại"
+								<input type="button" value="Thêm thể loại" 
+									style = "background-color:#00a181; border-color:#00a181;"
 									class="btn btn-primary"
 									onclick="location.href='${pageContext.request.contextPath}/AddCategory'">
 							</div>
